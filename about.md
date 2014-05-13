@@ -15,4 +15,4 @@
 
 >* 欢迎访问我们的博客：http://frontend-sh.github.io/
 >* 我们的QQ群：256115278（上海前端精英汇）
->* 我们的邮箱：tuan_fe@163.com
+>* 我们的邮箱：tuan_fe@163.com frontendsh@126.com
