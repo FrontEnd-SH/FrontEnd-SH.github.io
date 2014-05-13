@@ -1,9 +1,9 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+title: 前端@上海
+email: frontendsh@126.com
+description: "今天我们必须努力生活，不然明天就会被社会淘汰。"
 baseurl: ""
-url: "http://yourdomain.com"
+url: "http://frontend-sh.github.io"
 
 # Build settings
 markdown: kramdown
