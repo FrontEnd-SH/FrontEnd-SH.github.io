@@ -39,13 +39,13 @@
 						clearInterval(self.interval);
 						self.interval = null;
 						if(isFlash){
-							this.width = 0;
+							self.width = 0;
 						}
 					} else {
 						var distance = isFlash ? ((self.max / 30)|0) : (self.max - self.width) / 180;
 						var width = (self.width + distance)|0;
 						width = self.max > width ? width : self.max;
-						this.width = width;
+						self.width = width;
 						self.setPlay.call(self, width);
 					}
 				}, self.spend);
