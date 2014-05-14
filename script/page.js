@@ -10,7 +10,8 @@
 			this.width = localStorage.getItem(this.key) || 0;
 			this.max = $(document.body).width();
 			this.interval = null;
-			this.spend = 30;
+			this.spend = 20;
+			this.total = 0;
 			this.$elem = $("<div>").css({
 				"background": "#78d2d8",
 				"height": "5px",
@@ -32,17 +33,18 @@
 		},
 		run : function(start){
 			  this.width = start || this.width;
-			
 				var self = this;
 				this.interval = setInterval(function() {
-					if (self.width >= self.max - 20) {
+					if (self.total >= 200) {
 						clearInterval(self.interval);
 						self.interval = null;
+						self.total = 0;
 						self.setPlay.call(self, 0);
 					} else {
-						var width = self.width + (self.max - self.width) * .08;
+						var width = self.width + (.6 * self.max - self.width) * .08;
 						width = self.max > width ? width : self.max;
 						self.setPlay.call(self, width);
+						self.total ++;
 					}
 				}, self.spend);
 			
