@@ -32,18 +32,20 @@
 		},
 		run : function(start){
 			this.width = start;
-			if(this.width >= this.max-20){
-				 clearInterval(this.interval);
-				 this.interval = null;
-				 this.setPlay(0);
-			} else{
+			
 				var self = this;
 				this.interval = setInterval(function() {
-					var width = self.width + (self.max - self.width) * .1;
-					width = self.max > self.width ? self.max - self.width : self.max;
-					self.setPlay.call(self, width);
+					if (self.width >= self.max - 20) {
+						clearInterval(self.interval);
+						self.interval = null;
+						self.setPlay.call(self, 0);
+					} else {
+						var width = self.width + (self.max - self.width) * .1;
+						width = self.max > self.width ? self.max - self.width : self.max;
+						self.setPlay.call(self, width);
+					}
 				}, self.spend);
-			}
+			
 		},
 		reflash: function(){
 			this.run();
