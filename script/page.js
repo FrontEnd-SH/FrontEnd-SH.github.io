@@ -9,6 +9,8 @@
 
 			this.width = localStorage.getItem(this.key) || 0;
 			this.max = $(document.body).width();
+			this.interval = null;
+			this.spend = 30;
 			this.$elem = $("<div>").css({
 				"background": "#78d2d8",
 				"height": "5px",
@@ -39,7 +41,7 @@
 					var width = this.width + (self.max - self.width) * .1;
 						width = self.max > self.width ? self.max- self.width : self.max;
 					self.setPlay(width);
-				}, 10);
+				}, self.spend);
 			}
 		},
 		reflash: function(){
