@@ -7,14 +7,14 @@
 			if (this.isInit) return;
 			this.isInit = true;
 
-			this.width = localStorage.getItem(this.key) || 0;
+			this.width = parseInt(localStorage.getItem(this.key), 10) || 0;
 			this.max = $(document.body).width();
 			this.interval = null;
 			this.speed = 15;
 			this.$elem = $("<div>").css({
 				"background": "#78d2d8",
 				"height": "5px",
-				"width": 0,
+				"width": this.width,
 				"position": "absolute",
 				"top": 0,
 				"left": 0
