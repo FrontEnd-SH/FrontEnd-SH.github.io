@@ -32,9 +32,10 @@
 		},
 		run : function(start){
 			this.width = start;
-			if(this.width >= this.max){
+			if(this.width >= this.max-20){
 				 clearInterval(this.interval);
 				 this.interval = null;
+				 this.setPlay(0);
 			} else{
 				var self = this;
 				this.interval = setInterval(function() {
