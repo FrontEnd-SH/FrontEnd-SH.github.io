@@ -10,7 +10,7 @@
 			this.width = localStorage.getItem(this.key) || 0;
 			this.max = $(document.body).width();
 			this.interval = null;
-			this.spend = 20;
+			this.spend = 15;
 			this.$elem = $("<div>").css({
 				"background": "#78d2d8",
 				"height": "5px",
@@ -30,7 +30,7 @@
 		play: function() {
 			this.run(0);
 		},
-		run : function(start){
+		run : function(start, isFlash){
 			  this.width = start || this.width;
 				var self = this;
 				var start = new Date().getTime();
@@ -39,9 +39,9 @@
 					if (end - start >= 2000) {
 						clearInterval(self.interval);
 						self.interval = null;
-						self.setPlay.call(self, 0);
 					} else {
-						var width = self.width + (self.max - self.width) / 20;
+						var distance = isFlash ? ((self.max / 30)|0) : (self.max - self.width) / 180;
+						var width = (self.width + distance)|0;
 						width = self.max > width ? width : self.max;
 						self.setPlay.call(self, width);
 					}
@@ -49,15 +49,15 @@
 			
 		},
 		reflash: function(){
-			this.run();
+			this.run(this.width, true);
 		}
 	};
 	topAnimate.init();
 	topAnimate.reflash();
 	window.topAnimate = topAnimate;
 	//set document top animate
-//	$(document.body).find("a").each(function(link) {
-
-//	});
+	$(document.body).find("a").each(function(link) {
+			topAnimate.play();
+	});
 
 })();
