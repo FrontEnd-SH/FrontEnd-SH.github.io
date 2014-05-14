@@ -31,7 +31,7 @@
 			this.run(0);
 		},
 		run : function(start){
-			this.width = start;
+			  this.width = start || this.width;
 			
 				var self = this;
 				this.interval = setInterval(function() {
