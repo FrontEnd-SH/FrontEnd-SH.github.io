@@ -10,7 +10,7 @@
 			this.width = localStorage.getItem(this.key) || 0;
 			this.max = $(document.body).width();
 			this.interval = null;
-			this.spend = 15;
+			this.speed = 15;
 			this.$elem = $("<div>").css({
 				"background": "#78d2d8",
 				"height": "5px",
@@ -40,6 +40,7 @@
 						self.interval = null;
 						if(isFlash){
 							self.width = 0;
+							localStorage.setItem(self.key, 0);
 						}
 					} else {
 						var distance = isFlash ? ((self.max / 30)|0) : (self.max - self.width) / 180;
@@ -48,8 +49,7 @@
 						self.width = width;
 						self.setPlay.call(self, width);
 					}
-				}, self.spend);
-			
+				}, self.speed);
 		},
 		reflash: function(){
 			this.run(this.width, true);
@@ -59,7 +59,7 @@
 	topAnimate.reflash();
 	window.topAnimate = topAnimate;
 	//set document top animate
-	$(document.body).find("a").each(function(link) {
+	$(document).delegate("a","click", function(e) {
 			topAnimate.play();
 	});
 
