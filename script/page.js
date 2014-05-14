@@ -37,10 +37,10 @@
 				 this.interval = null;
 			} else{
 				var self = this;
-				this.interval = setInterval(function(){
-					var width = this.width + (self.max - self.width) * .1;
-						width = self.max > self.width ? self.max- self.width : self.max;
-					self.setPlay(width);
+				this.interval = setInterval(function() {
+					var width = self.width + (self.max - self.width) * .1;
+					width = self.max > self.width ? self.max - self.width : self.max;
+					self.setPlay.call(self, width);
 				}, self.spend);
 			}
 		},
