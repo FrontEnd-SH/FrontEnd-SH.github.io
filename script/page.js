@@ -41,7 +41,7 @@
 						self.interval = null;
 						self.setPlay.call(self, 0);
 					} else {
-						var width = self.width + (.6 * self.max - self.width) * .08;
+						var width = self.width + (self.max - self.width) / 20;
 						width = self.max > width ? width : self.max;
 						self.setPlay.call(self, width);
 					}
