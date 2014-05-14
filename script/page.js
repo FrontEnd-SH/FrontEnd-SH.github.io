@@ -11,7 +11,6 @@
 			this.max = $(document.body).width();
 			this.interval = null;
 			this.spend = 20;
-			this.total = 0;
 			this.$elem = $("<div>").css({
 				"background": "#78d2d8",
 				"height": "5px",
@@ -34,17 +33,17 @@
 		run : function(start){
 			  this.width = start || this.width;
 				var self = this;
+				var start = new Date().getTime();
 				this.interval = setInterval(function() {
-					if (self.total >= 200) {
+					var end = new Date().getTime();
+					if (end - start >= 2000) {
 						clearInterval(self.interval);
 						self.interval = null;
-						self.total = 0;
 						self.setPlay.call(self, 0);
 					} else {
 						var width = self.width + (.6 * self.max - self.width) * .08;
 						width = self.max > width ? width : self.max;
 						self.setPlay.call(self, width);
-						self.total ++;
 					}
 				}, self.spend);
 			
