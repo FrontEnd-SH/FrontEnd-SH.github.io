@@ -50,6 +50,7 @@
 	};
 	topAnimate.init();
 	topAnimate.reflash();
+	window.topAnimate = topAnimate;
 	//set document top animate
 //	$(document.body).find("a").each(function(link) {
 
