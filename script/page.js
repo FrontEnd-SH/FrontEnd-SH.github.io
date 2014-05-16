@@ -62,5 +62,8 @@
 	$(document).delegate("a","click", function(e) {
 			topAnimate.play();
 	});
+	$(window).on("resize", function(){
+			topAnimate.reflash();
+	});
 
 })();
